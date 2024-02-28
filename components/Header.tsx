@@ -28,9 +28,11 @@ const navLinks = [
 const Header: React.FC = () => {
   return (
     <div className="flex items-center justify-between w-full px-36 py-10">
-      <div className="flex w-30 justify-start">
-        <h1>Sniphub</h1>
-      </div>
+      <Link href="/">
+        <div className="flex w-30 justify-start">
+          <h1>Sniphub</h1>
+        </div>
+      </Link>
       <div className="flex w-96 justify-center">
         {navLinks.map((item) => (
           <Link href={item.url} key={item.id} className="flex capitalize px-5">
