@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -29,7 +30,14 @@ const Header: React.FC = () => {
   return (
     <div className="flex items-center justify-between w-full px-36 py-10">
       <Link href="/">
-        <div className="flex w-30 justify-start">
+        <div className="flex w-30 items-center">
+          <Image
+            src="logo.svg"
+            alt="logo"
+            height="100"
+            width="100"
+            className="flex w-12.5"
+          />
           <h1>Sniphub</h1>
         </div>
       </Link>
