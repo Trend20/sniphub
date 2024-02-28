@@ -28,7 +28,7 @@ const navLinks = [
 const Header: React.FC = () => {
   return (
     <div className="flex items-center justify-between w-full px-36 py-10">
-      <div className="flex">
+      <div className="flex w-30 justify-start">
         <h1>Sniphub</h1>
       </div>
       <div className="flex w-96 justify-center">
@@ -38,8 +38,10 @@ const Header: React.FC = () => {
           </Link>
         ))}
       </div>
-      <div className="flex">
-        <button>New Snippet</button>
+      <div className="flex w-30">
+        <button className="flex w-full items-center justify-center p-2 bg-meta-4 rounded-md text-whiten">
+          New Snippet
+        </button>
       </div>
     </div>
   );
