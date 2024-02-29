@@ -1,4 +1,6 @@
 @import url("https://fonts.cdnfonts.com/css/satoshi");
+/* @import "codemirror/lib/codemirror.css"; */
+/* @import "codemirror/theme/material.css"; */
 
 @tailwind base;
 @tailwind components;
