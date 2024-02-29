@@ -12,7 +12,7 @@ const Login = () => {
 
   // if (session) return redirect("/profile");
   return (
-    <div className="flex w-full justify-center items-center m-auto">
+    <div className="flex w-full justify-center items-center m-auto mt-20">
       <main className="flex-1 flex items-center justify-center p-6">
         <div className="flex flex-col border border-grey rounded-md p-5 gap-6 w-full max-w-sm">
           <div className="space-y-2 text-center">
@@ -35,7 +35,7 @@ const Login = () => {
               />
               Login with GitHub
             </button>
-            <button className="w-full space-x-2 flex items-center border border-grey rounded-md p-3">
+            <button onClick={() => signIn('google')} className="w-full space-x-2 flex items-center border border-grey rounded-md p-3">
               <Image
                 src="/icons/google.svg"
                 alt="google icon"
