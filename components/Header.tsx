@@ -49,9 +49,12 @@ const Header: React.FC = () => {
         ))}
       </div>
       <div className="flex w-30">
-        <button className="flex w-full items-center justify-center p-2 bg-meta-4 rounded-md text-whiten">
-          New Snippet
-        </button>
+        <Link
+          href="/login"
+          className="flex w-full items-center justify-center p-2 bg-meta-4 rounded-md text-whiten"
+        >
+          Get Started
+        </Link>
       </div>
     </div>
   );
