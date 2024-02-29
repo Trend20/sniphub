@@ -1,8 +1,16 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { signIn } from "next-auth/react";
+// import { getServerSession } from "next-auth";
+// import { redirect } from "next/navigation";
 
 const Login = () => {
+  // const session = await getServerSession();
+
+  // console.log("Session: ", session);
+
+  // if (session) return redirect("/profile");
   return (
     <div className="flex w-full justify-center items-center m-auto">
       <main className="flex-1 flex items-center justify-center p-6">
@@ -14,7 +22,10 @@ const Login = () => {
             </p>
           </div>
           <div className="space-y-4">
-            <button className="w-full space-x-2 flex items-center border border-grey rounded-md p-3">
+            <button
+              onClick={() => signIn("github")}
+              className="w-full space-x-2 flex items-center border border-grey rounded-md p-3"
+            >
               <Image
                 src="/icons/github.svg"
                 alt="github icon"
