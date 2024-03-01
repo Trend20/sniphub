@@ -9,14 +9,25 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@codemirror/lang-javascript": "^6.2.2",
+    "@codemirror/language": "^6.10.1",
+    "@codemirror/language-data": "^6.4.1",
     "@material-tailwind/react": "^2.1.9",
+    "@uiw/codemirror-extensions-langs": "^4.21.24",
+    "@uiw/codemirror-theme-atomone": "^4.21.24",
+    "@uiw/codemirror-theme-aura": "^4.21.24",
+    "@uiw/codemirror-theme-okaidia": "^4.21.24",
+    "@uiw/react-codemirror": "^4.21.24",
+    "@uiw/react-markdown-editor": "^6.0.0",
+    "@uiw/react-md-editor": "^4.0.3",
     "codemirror": "^6.0.1",
     "next": "14.1.0",
     "next-auth": "^4.24.6",
     "react": "^18",
     "react-codemirror2": "^7.3.0",
     "react-dom": "^18",
-    "react-icons": "^5.0.1"
+    "react-icons": "^5.0.1",
+    "react-markdown": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "^20",
