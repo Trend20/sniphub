@@ -1,15 +1,23 @@
+"use client";
+import AddSnippetDialog from "@/components/AddSnippetDialog";
 import React from "react";
 import { BsFileEarmarkCodeFill } from "react-icons/bs";
 
 const Snippets = () => {
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen((cur) => !cur);
   return (
     <div className="flex flex-col px-36 w-3/4 m-auto mt-30 border border-grey rounded-md p-3">
       <div className="flex items-center justify-between">
         <h3>Snippets</h3>
-        <button className="flex bg-black-2 text-whiten rounded-md p-2">
+        <button
+          onClick={handleOpen}
+          className="flex bg-black-2 text-whiten rounded-md p-2"
+        >
           Add Snippet
         </button>
       </div>
+      <AddSnippetDialog open={open} handleOpen={handleOpen} />
       <div className="grid py-5 grid-cols-2 gap-8">
         <div className="flex flex-col border border-grey rounded-md p-3">
           <h5 className="text-xl font-bold">How to add dark theme!</h5>

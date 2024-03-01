@@ -1,9 +1,9 @@
 import React from "react";
 
-const Hero = () => {
+const Hero = async () => {
   return (
     <div className="flex w-dull">
-      <section className="bg-yellow-500 py-12 md:py-24">
+      <section className="py-12 md:py-24">
         <div className="container grid items-center gap-4 px-4 text-center md:px-6 lg:gap-10">
           <div className="space-y-3">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl">
