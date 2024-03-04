@@ -1,20 +1,34 @@
 "use client";
 import AddSnippetDialog from "@/components/AddSnippetDialog";
-import React from "react";
+import React, { useState } from "react";
 import { BsFileEarmarkCodeFill } from "react-icons/bs";
-import {
-  Collapse,
-  Button,
-  Card,
-  Typography,
-  CardBody,
-} from "@material-tailwind/react";
+import { Collapse, Card, Typography, CardBody } from "@material-tailwind/react";
+import CodeMirror from "@uiw/react-codemirror";
+import { aura } from "@uiw/codemirror-theme-aura";
+import MarkdownEditor from "@uiw/react-markdown-editor";
+import { FaRegCopy } from "react-icons/fa";
 
 const Snippets = () => {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen((cur) => !cur);
   const [showSnippet, setShowSnippet] = React.useState(false);
   const toggleOpen = () => setShowSnippet((cur) => !cur);
+  const [snip, setSnip] = useState("");
+
+  const onChange = React.useCallback(
+    (val: React.SetStateAction<string>, viewUpdate: any) => {
+      console.log("val:", val);
+      setSnip(val);
+    },
+    []
+  );
+
+  function handleCopy() {
+    const codeMirrorValue = snip;
+    navigator.clipboard.writeText(codeMirrorValue).then(() => {
+      console.log("Text copied to clipboard");
+    });
+  }
   return (
     <div className="flex flex-col px-36 w-3/4 m-auto mt-30 border border-grey rounded-md p-3">
       <div className="flex items-center justify-between">
@@ -28,7 +42,7 @@ const Snippets = () => {
       </div>
       <AddSnippetDialog open={open} handleOpen={handleOpen} />
       <div className="grid py-5 grid-cols-2 gap-8">
-        <div className="flex flex-col border border-grey rounded-md p-3">
+        <div className="flex flex-col border border-grey rounded-md p-3 relative">
           <h5 className="text-xl font-bold">How to add dark theme!</h5>
           <p className="text-sm text-gray-500 dark:text-gray-400">
             To use the dark class in shadcn, simply add the dark class to any
@@ -47,15 +61,24 @@ const Snippets = () => {
           </div>
           {/* code snippet */}
           {showSnippet && (
-            <Collapse open={showSnippet}>
-              <Card className="my-4 mx-auto w-8/12">
-                <CardBody>
-                  <Typography>
-                    Use our Tailwind CSS collapse for your website. You can use
-                    if for accordion, collapsible items and much more.
-                  </Typography>
-                </CardBody>
-              </Card>
+            <Collapse
+              open={showSnippet}
+              className="mt-5 w-96 rounded-md relative"
+            >
+              <div
+                className="flex absolute bottom-2 right-1 z-99 cursor-pointer"
+                onClick={handleCopy}
+              >
+                <FaRegCopy fill="#fff" size={20} />
+              </div>
+              <CodeMirror
+                value={snip}
+                className="w-full border border-grey outline-none"
+                height="300px"
+                // extensions={[StreamLanguage.define(selectedOption)]}
+                theme={aura}
+                onChange={onChange}
+              />
             </Collapse>
           )}
           {/* code snippet */}

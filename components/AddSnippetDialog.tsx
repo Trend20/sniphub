@@ -3,12 +3,6 @@ import React, { useState } from "react";
 import { Dialog } from "@material-tailwind/react";
 import CodeMirror from "@uiw/react-codemirror";
 import { aura } from "@uiw/codemirror-theme-aura";
-// import { loadLanguage } from "@uiw/codemirror-extensions-langs";
-// import { StreamLanguage } from "@codemirror/language";
-import ReactMarkdown from "react-markdown";
-import MDEditor from "@uiw/react-md-editor";
-// import { markdown, markdownLanguage } from "@codemirror/lang-markdown";
-// import { languages } from "@codemirror/language-data";
 import MarkdownEditor from "@uiw/react-markdown-editor";
 
 interface DialogProps {
@@ -36,14 +30,6 @@ const AddSnippetDialog = ({ open, handleOpen }: DialogProps) => {
     },
     []
   );
-
-  const handleChange = (value: any) => {
-    setSelectedOption(value);
-  };
-
-  // const handleChange = (e) => {
-  //   setMarkdown(e.target.value);
-  // };
 
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -113,7 +99,7 @@ const AddSnippetDialog = ({ open, handleOpen }: DialogProps) => {
           <div className="flex justify-end p-5">
             <button
               onClick={handleOpen}
-              className="flex w-32 items-center justify-center p-2 rounded-md text-meta-4 border border-grey"
+              className="flex w-32 items-center text-red-500 justify-center p-2 rounded-md  border border-grey"
             >
               Discard
             </button>
